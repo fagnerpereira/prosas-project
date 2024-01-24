@@ -1,5 +1,5 @@
 class CriterionsController < ApplicationController
-  before_action :set_criterion, only: %i[ show edit update destroy ]
+  before_action :set_criterion, only: %i[show edit update destroy]
 
   # GET /criterions or /criterions.json
   def index
@@ -7,8 +7,7 @@ class CriterionsController < ApplicationController
   end
 
   # GET /criterions/1 or /criterions/1.json
-  def show
-  end
+  def show; end
 
   # GET /criterions/new
   def new
@@ -16,8 +15,7 @@ class CriterionsController < ApplicationController
   end
 
   # GET /criterions/1/edit
-  def edit
-  end
+  def edit; end
 
   # POST /criterions or /criterions.json
   def create
@@ -26,10 +24,10 @@ class CriterionsController < ApplicationController
 
     respond_to do |format|
       if @criterion.new_record? && @criterion.save
-        format.html { redirect_to criterion_url(@criterion), notice: "Criterion was successfully created." }
+        format.html { redirect_to criterion_url(@criterion), notice: 'Criterion was successfully created.' }
         format.json { render :show, status: :created, location: @criterion }
       elsif @criterion.persisted? && @criterion.update(criterion_params)
-        format.html { redirect_to criterion_url(@criterion), notice: "Criterion was successfully updated." }
+        format.html { redirect_to criterion_url(@criterion), notice: 'Criterion was successfully updated.' }
         format.json { render :show, status: :ok, location: @criterion }
       else
         format.html { render :new, status: :unprocessable_entity }
@@ -42,7 +40,7 @@ class CriterionsController < ApplicationController
   def update
     respond_to do |format|
       if @criterion.update(criterion_params)
-        format.html { redirect_to criterion_url(@criterion), notice: "Criterion was successfully updated." }
+        format.html { redirect_to criterion_url(@criterion), notice: 'Criterion was successfully updated.' }
         format.json { render :show, status: :ok, location: @criterion }
       else
         format.html { render :edit, status: :unprocessable_entity }
@@ -56,19 +54,20 @@ class CriterionsController < ApplicationController
     @criterion.destroy!
 
     respond_to do |format|
-      format.html { redirect_to criterions_url, notice: "Criterion was successfully destroyed." }
+      format.html { redirect_to criterions_url, notice: 'Criterion was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
-    def set_criterion
-      @criterion = Criterion.find(params[:id])
-    end
 
-    # Only allow a list of trusted parameters through.
-    def criterion_params
-      params.require(:criterion).permit(:weight, :name, :id)
-    end
+  # Use callbacks to share common setup or constraints between actions.
+  def set_criterion
+    @criterion = Criterion.find(params[:id])
+  end
+
+  # Only allow a list of trusted parameters through.
+  def criterion_params
+    params.require(:criterion).permit(:weight, :name, :id)
+  end
 end

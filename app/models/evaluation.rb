@@ -5,7 +5,11 @@ class Evaluation < ApplicationRecord
 
   accepts_nested_attributes_for :grades
 
-# Ex: A Avaliacao v1 possui 5 notas 1,2,3,4,5 que pertencem aos critério 5,4,3,2,1 respectivamente então a media_ponderada é (1*5+2*4+3*3+4*2+5*1)/5+4+3+2+1 = 2.33.
+  def update_weight_average
+    self.weighted_average = calculate_weighted_average
+    save
+  end
+
   def calculate_weighted_average
     return 0 if grades.empty?
 
@@ -15,6 +19,6 @@ class Evaluation < ApplicationRecord
   end
 
   def update_project_total_average
-    Project.update_total_average(project: project)
+    Project.update_total_average(project:)
   end
 end
