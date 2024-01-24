@@ -1,9 +1,9 @@
 # Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  weight: 1.5
-  name: MyString
+  weight: 0.1
+  name: c1
 
 two:
-  weight: 1.5
-  name: MyString
+  weight: 0.2
+  name: c2

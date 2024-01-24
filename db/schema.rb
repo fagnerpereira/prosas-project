@@ -19,7 +19,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_172925) do
   end
 
   create_table "evaluations", force: :cascade do |t|
-    t.float "weighted_average"
+    t.float "weighted_average", default: 0.0
     t.integer "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
@@ -27,7 +27,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_172925) do
   end
 
   create_table "grades", force: :cascade do |t|
-    t.float "grade"
+    t.float "value"
     t.integer "evaluation_id", null: false
     t.integer "criterion_id", null: false
     t.datetime "created_at", null: false
@@ -38,7 +38,7 @@ ActiveRecord::Schema[7.1].define(version: 2024_01_24_172925) do
 
   create_table "projects", force: :cascade do |t|
     t.string "name"
-    t.float "total_average"
+    t.float "total_average", default: 0.0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

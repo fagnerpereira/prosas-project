@@ -4,14 +4,10 @@
     <%= grade.grade %>
   </p>
 
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Evaluation:</strong>
-    <%= grade.evaluation_id %>
-  </p>
 
   <p class="my-5">
     <strong class="block font-medium mb-1">Criterion:</strong>
-    <%= grade.criterion_id %>
+    <%= grade.criterion.name %>
   </p>
 
   <% if action_name != "show" %>

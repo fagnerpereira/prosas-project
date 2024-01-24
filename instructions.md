@@ -37,8 +37,6 @@ Endpoint:
 3. POST /criterios
 
 - O endpoint 1 deve receber um corpo de requisição onde seja possível cadastrar ou atualizar 1 projeto com N avaliações onde cada avaliação tem N notas pertencentes a N critérios.
-
-
 - O endpoint 2 deve retornar uma lista de projetos e aceitar de 25 a 100 objetos por página.
 - O endpoint 3 deve receber um corpo de requisição onde seja possivel cadastrar ou atualizar um criterio.
 - Deve ser mantidada a consistências das médias após a atualização dos dados. Por exemplo se for atualizado o peso de um critério todas as médias devem ser recalculadas, assim como alteração em alguma nota deve atualizar a média podenrada da avaliação e a media total do projeto.

@@ -65,6 +65,7 @@ class ProjectsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def project_params
-      params.require(:project).permit(:name, :total_average)
+      params.require(:project).permit(:name, :total_average,
+                                      evaluations_attributes: [grades_attributes: [:value, :criterion_id]])
     end
 end

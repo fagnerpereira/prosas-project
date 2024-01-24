@@ -11,5 +11,8 @@
       <%= button_to "Destroy this project", project_path(@project), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
     </div>
     <%= link_to "Back to projects", projects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+
+    <h2><%= t('.evaluations') %></h2>
+    <%= render @project.evaluations %>
   </div>
 </div>
