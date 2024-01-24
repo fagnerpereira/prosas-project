@@ -1,5 +1,6 @@
 class Project < ApplicationRecord
   has_many :evaluations, dependent: :destroy
+  has_many :grades, through: :evaluations
 
   accepts_nested_attributes_for :evaluations
 
