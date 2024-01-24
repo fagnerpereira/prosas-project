@@ -21,12 +21,16 @@ class CriterionsController < ApplicationController
 
   # POST /criterions or /criterions.json
   def create
-    @criterion = Criterion.new(criterion_params)
+    @criterion = Criterion.find_by(id: criterion_params[:id])
+    @criterion = Criterion.new(criterion_params) if @criterion.nil?
 
     respond_to do |format|
-      if @criterion.save
+      if @criterion.new_record? && @criterion.save
         format.html { redirect_to criterion_url(@criterion), notice: "Criterion was successfully created." }
         format.json { render :show, status: :created, location: @criterion }
+      elsif @criterion.persisted? && @criterion.update(criterion_params)
+        format.html { redirect_to criterion_url(@criterion), notice: "Criterion was successfully updated." }
+        format.json { render :show, status: :ok, location: @criterion }
       else
         format.html { render :new, status: :unprocessable_entity }
         format.json { render json: @criterion.errors, status: :unprocessable_entity }
@@ -65,6 +69,6 @@ class CriterionsController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def criterion_params
-      params.require(:criterion).permit(:weight, :name)
+      params.require(:criterion).permit(:weight, :name, :id)
     end
 end
