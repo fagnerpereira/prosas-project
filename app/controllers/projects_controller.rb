@@ -36,6 +36,8 @@ class ProjectsController < ApplicationController
         format.json { render json: @project.errors, status: :unprocessable_entity }
       end
     end
+  rescue StandardError => e
+    render json: { error: e.message }, status: :unprocessable_entity
   end
 
   # PATCH/PUT /projects/1 or /projects/1.json
