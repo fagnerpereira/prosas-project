@@ -1,0 +1,22 @@
+<div id="<%= dom_id grade %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Grade:</strong>
+    <%= grade.grade %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Evaluation:</strong>
+    <%= grade.evaluation_id %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Criterion:</strong>
+    <%= grade.criterion_id %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this grade", grade, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this grade", edit_grade_path(grade), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>

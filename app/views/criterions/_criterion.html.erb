@@ -1,0 +1,17 @@
+<div id="<%= dom_id criterion %>">
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Weight:</strong>
+    <%= criterion.weight %>
+  </p>
+
+  <p class="my-5">
+    <strong class="block font-medium mb-1">Name:</strong>
+    <%= criterion.name %>
+  </p>
+
+  <% if action_name != "show" %>
+    <%= link_to "Show this criterion", criterion, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+    <%= link_to "Edit this criterion", edit_criterion_path(criterion), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+    <hr class="mt-6">
+  <% end %>
+</div>
