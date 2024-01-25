@@ -8,3 +8,11 @@ Style/HashSyntax:
 
 Style/Documentation:
   Enabled: false
+
+Style/StringLiterals:
+  Exclude:
+    - "db/schema.rb"
+
+Metrics/BlockLength:
+  Exclude:
+    - "db/schema.rb"

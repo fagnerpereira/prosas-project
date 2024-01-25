@@ -1,9 +1,12 @@
 class ProjectsController < ApplicationController
   before_action :set_project, only: %i[show edit update destroy]
+  # after_action { pagy_headers_merge(@pagy) if @pagy }
 
   # GET /projects or /projects.json
   def index
     @pagy, @projects = pagy(Project.ordered)
+    binding.pry
+    pagy_headers_merge(@pagy)
   end
 
   # GET /projects/1 or /projects/1.json

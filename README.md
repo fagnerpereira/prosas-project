@@ -1,25 +1,34 @@
-# README
+# Contexto
+A tarefa é desenvolver uma api com três endpoints. Um para listar projetos, outro para receber projetos e suas avaliações e outro para cadastro de critérios de avaliação. Abaixo segue as entidades e os campos de cada uma:
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## TODOs
 
-Things you may want to cover:
+- [ ] Configurar MySQL;
+- [x] Rails framework;
+- [ ] Configurar Postman e exportar schema;
+- [x] Criar endpoint /projetos para cadastrar projetos com avaliações e notas;
+- [x] Criar endpoint /projetos para consultar projetos;
+  - [ ] aceitar de 25 a 100 projetos por página;
+  - [x] adicionar headers com dados da paginação
+- [x] Criar endpoint /criterios para cadastrar critérios;
+- [ ] Ao atualizar uma nota, a média da avaliação e do projeto devem ser atualizadas;
+- [ ] Ao atualizar um critério, a média da avaliação e do projeto devem ser atualizadas;
+- [ ] Criar uma base teste com 1000 projetos com 5 notas para cada um de 5 critérios;
+- [ ] Criar calculo para media_ponderada usando a fórmula  **(n1 * c1)+(n2 * c2)+..+(n5 * c5)/(c1+c2+..+c5)**;
+- [ ] Criar calculo para media_total do projeto usando a fórmula **(m1+m2+...+m5)/5**;
 
-* Ruby version
+Projeto:
+- nome: String
+- media_total: Float
 
-* System dependencies
+Avaliacao:
+- media_ponderada: Float
+- projeto_id: Integer
 
-* Configuration
+Nota:
+- nota: Float
+- avaliacao_id: Integer
+- criterio_id: Integer
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-# prosas-project
+Criterio:
+- peso: Float

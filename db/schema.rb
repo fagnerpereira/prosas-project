@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_01_24_172925) do
+ActiveRecord::Schema[7.1].define(version: 20_240_124_172_925) do
   create_table "criterions", force: :cascade do |t|
     t.float "weight"
     t.string "name"
