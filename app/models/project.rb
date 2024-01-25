@@ -4,9 +4,8 @@ class Project < ApplicationRecord
 
   accepts_nested_attributes_for :evaluations
 
-  def self.update_total_average(project:)
-    project_total_average = project.calculate_total_average
-    project.update(total_average: project_total_average)
+  def update_total_average
+    update(total_average: calculate_total_average)
   end
 
   def calculate_total_average

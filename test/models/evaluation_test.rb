@@ -1,4 +1,4 @@
-require "test_helper"
+require 'test_helper'
 
 class EvaluationTest < ActiveSupport::TestCase
   setup do
@@ -6,7 +6,7 @@ class EvaluationTest < ActiveSupport::TestCase
     @criterion_1 = criterions(:one)
   end
 
-  test "#calculate_weighted_average" do
+  test '#calculate_weighted_average' do
     @evaluation = Evaluation.create(project: @project)
     @evaluation.grades.create(value: 10, criterion: @criterion_1)
     @evaluation.grades.create(value: 20, criterion: @criterion_1)
@@ -18,7 +18,7 @@ class EvaluationTest < ActiveSupport::TestCase
     assert @evaluation.calculate_weighted_average, expected_weighted_average
   end
 
-  test "#calculate_weighted_average without grades" do
+  test '#calculate_weighted_average without grades' do
     @evaluation = Evaluation.create(project: @project)
 
     assert @evaluation.calculate_weighted_average.zero?
