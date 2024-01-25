@@ -32,3 +32,4 @@ Nota:
 
 Criterio:
 - peso: Float
+![image](https://github.com/fagnerpereira/prosas-project/assets/4353880/e334818f-2773-4695-838f-b8fc455ea12f)
