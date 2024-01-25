@@ -21,6 +21,7 @@ A tarefa é desenvolver uma api com três endpoints. Um para listar projetos, ou
 - [ ] Adicionar criação e edição de notas pela interface
 - [ ] Adicionar criação e edição de avaliações pela interface
 - [x] Adicionar workers para calcular quando critérios são atualizados e não travar a requisição;
+- [ ] Corrigir alguns testes
 
 Projeto:
 - nome: String
