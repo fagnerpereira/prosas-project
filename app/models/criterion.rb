@@ -1,7 +1,7 @@
 class Criterion < ApplicationRecord
   scope :total_weight, -> { sum(:weight) }
 
-  has_many :grades
+  has_many :grades, dependent: :nullify
   has_many :evaluations, through: :grades
   has_many :projects, through: :evaluations
 

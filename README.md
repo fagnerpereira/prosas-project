@@ -3,7 +3,7 @@ A tarefa é desenvolver uma api com três endpoints. Um para listar projetos, ou
 
 ## TODOs
 
-- [ ] Configurar MySQL;
+- [x] Configurar MySQL;
 - [x] Rails framework;
 - [x] Configurar Postman e exportar schema;
 - [x] Criar endpoint /projetos para cadastrar projetos com avaliações e notas;
@@ -16,6 +16,11 @@ A tarefa é desenvolver uma api com três endpoints. Um para listar projetos, ou
 - [x] Criar uma base teste com 1000 projetos com 5 notas para cada um de 5 critérios;
 - [x] Criar calculo para media_ponderada usando a fórmula  **(n1 * c1)+(n2 * c2)+..+(n5 * c5)/(c1+c2+..+c5)**;
 - [x] Criar calculo para media_total do projeto usando a fórmula **(m1+m2+...+m5)/5**;
+
+### Melhorias
+- [ ] Adicionar criação e edição de notas pela interface
+- [ ] Adicionar criação e edição de avaliações pela interface
+- [x] Adicionar workers para calcular quando critérios são atualizados e não travar a requisição;
 
 Projeto:
 - nome: String
