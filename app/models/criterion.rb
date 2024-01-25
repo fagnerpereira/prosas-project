@@ -7,9 +7,9 @@ class Criterion < ApplicationRecord
   validates_presence_of :name, :weight
   validates_uniqueness_of :weight, scope: :name
 
-  after_commit :update_evaluations_weighted_average, on: :update
+  after_update_commit :update_evaluations_weighted_average
 
   def update_evaluations_weighted_average
-    evaluations.each(&:update_weight_average)
+    evaluations.each(&:update_weight_average) if weight_previously_changed?
   end
 end

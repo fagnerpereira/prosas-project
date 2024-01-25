@@ -44,7 +44,11 @@ pt-BR:
   activerecord:
     models:
       project: "Projeto"
+      criterion: "Critério"
     attributes:
+      criterion:
+        name: "Nome do Critério"
+        weight: "Peso do Critério"
       project:
         name: "Nome do Projeto"
         total_average: "Media geral"

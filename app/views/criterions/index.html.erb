@@ -1,14 +1,24 @@
 <div class="w-full">
   <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice">
+      <%= notice %>
+    </p>
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Criterions</h1>
-    <%= link_to "New criterion", new_criterion_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl">
+      Critérios
+    </h1>
+
+    <%= link_to "Novo criterio", new_criterion_path,
+                                class: "btn-primary",
+                                data: { turbo_frame: dom_id(Criterion.new) } %>
   </div>
 
-  <div id="criterions" class="min-w-full">
-    <%= render @criterions %>
+  <div class="flex flex-col gap-2 mt-2">
+    <%= turbo_frame_tag Criterion.new %>
+    <%= turbo_frame_tag 'criterions', class: 'flex flex-col gap-2' do %>
+      <%= render @criterions %>
+    <% end %>
   </div>
-</div>
+
