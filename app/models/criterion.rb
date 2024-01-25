@@ -3,6 +3,7 @@ class Criterion < ApplicationRecord
 
   has_many :grades
   has_many :evaluations, through: :grades
+  has_many :projects, through: :evaluations
 
   validates_presence_of :name, :weight
   validates_uniqueness_of :weight, scope: :name
@@ -10,6 +11,6 @@ class Criterion < ApplicationRecord
   after_update_commit :update_evaluations_weighted_average
 
   def update_evaluations_weighted_average
-    evaluations.each(&:update_weight_average) if weight_previously_changed?
+    RecalculateCriterionEvaluationsJob.perform_later(id) if weight_previously_changed?
   end
 end
