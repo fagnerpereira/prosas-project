@@ -1,22 +1,17 @@
-<!-- Component: Empty card -->
-<div class="overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200">
+<div class="flex items-center justify-between">
+  <h1 class="text-2xl font-medium text-primary-500">
+    Projeto <%= @project.name %>
+  </h1>
+
+  <%= link_to "Voltar", projects_path, class: "btn-secondary" %>
+</div>
+
+<div class="overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200 mt-2">
   <div class="p-6">
     <% if notice.present? %>
     <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
-    <%= render @project %>
-
-    <%= link_to "Edit this project", edit_project_path(@project), class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <div class="inline-block ml-2">
-      <%= button_to "Destroy this project", project_path(@project), method: :delete, class: "mt-2 rounded-lg py-3 px-5 bg-gray-100 font-medium" %>
-    </div>
-    <%= link_to "Back to projects", projects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-
-    <!-- Component: Basic accordion -->
-    <h2><%= t('.evaluations') %></h2>
     <%= render @project.evaluations %>
-    <!-- End Basic accordion -->
   </div>
 </div>
-<!-- End Empty card -->
