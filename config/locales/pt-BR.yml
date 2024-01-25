@@ -27,5 +27,24 @@
 #       "yes": yup
 #       enabled: "ON"
 
-en:
-  hello: "Hello world"
+pt-BR:
+  time:
+    formats:
+      default: "%d/%m/%Y as %H:%M"
+  evaluations:
+    evaluation:
+      evaluation_title: "Avaliação criada %{created_at}, média ponderada: %{weighted_average}"
+  grades:
+    grade:
+      criterion_tooltip: "Critério %{name} tem peso de %{weight}"
+
+  errors:
+    messages:
+      blank: "deve estar preenchido"
+  activerecord:
+    models:
+      project: "Projeto"
+    attributes:
+      project:
+        name: "Nome do Projeto"
+        total_average: "Media geral"

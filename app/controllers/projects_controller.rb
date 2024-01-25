@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    @projects = Project.all
+    @pagy, @projects = pagy(Project.ordered)
   end
 
   # GET /projects/1 or /projects/1.json
@@ -24,6 +24,7 @@ class ProjectsController < ApplicationController
 
     respond_to do |format|
       if @project.new_record? && @project.save
+        format.turbo_stream
         format.html { redirect_to project_url(@project), notice: 'Project was successfully created.' }
         format.json { render :show, status: :created, location: @project }
       elsif @project.persisted? && @project.update(project_params)

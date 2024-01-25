@@ -1,7 +1,8 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
+<!-- Component: Empty card -->
+<div class="overflow-hidden bg-white rounded shadow-md text-slate-500 shadow-slate-200">
+  <div class="p-6">
     <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
     <% end %>
 
     <%= render @project %>
@@ -12,7 +13,10 @@
     </div>
     <%= link_to "Back to projects", projects_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
 
+    <!-- Component: Basic accordion -->
     <h2><%= t('.evaluations') %></h2>
     <%= render @project.evaluations %>
+    <!-- End Basic accordion -->
   </div>
 </div>
+<!-- End Empty card -->

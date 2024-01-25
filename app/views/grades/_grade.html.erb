@@ -1,18 +1,21 @@
-<div id="<%= dom_id grade %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Grade:</strong>
-    <%= grade.grade %>
-  </p>
+<tr id="<%= dom_id grade %>" class="odd:bg-slate-50">
+  <td class="h-12 px-6 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 ">
+    <%= grade.value %>
+  </td>
+  <td class="h-12 px-6 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 underline text-red-500">
+    <!-- Component: Top base sized tooltip -->
+    <span class="relative overflow-hidden cursor-pointer group hover:overflow-visible focus-visible:outline-none" aria-describedby="tooltip-01">
+      <!-- Tooltip trigger -->
+      <%= grade.criterion.name %>
+      <!-- End Tooltip trigger -->
+      <span role="tooltip" id="tooltip-01" class="invisible absolute bottom-full left-1/2 z-10 mb-2 w-48 -translate-x-1/2 rounded bg-slate-700 p-4 text-sm text-white opacity-0 transition-all before:invisible before:absolute before:left-1/2 before:top-full before:z-10 before:mb-2 before:-ml-2 before:border-x-8 before:border-t-8 before:border-x-transparent before:border-t-slate-700 before:opacity-0 before:transition-all before:content-[''] group-hover:visible group-hover:block group-hover:opacity-100 group-hover:before:visible group-hover:before:opacity-100">
+        <%= t('.criterion_tooltip', name: grade.criterion.name, weight: grade.criterion.weight) %>
+      </span>
+    </span>
+    <!-- End Top base sized tooltip -->
 
-
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Criterion:</strong>
-    <%= grade.criterion.name %>
-  </p>
-
-  <% if action_name != "show" %>
-    <%= link_to "Show this grade", grade, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this grade", edit_grade_path(grade), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
-</div>
+  </td>
+  <td class="h-12 px-6 text-sm transition duration-300 border-t border-l first:border-l-0 border-slate-200 stroke-slate-500 text-slate-500 ">
+    <%= grade.value * grade.criterion.weight %>
+  </td>
+</tr>

@@ -4,11 +4,23 @@
   <% end %>
 
   <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Projects</h1>
-    <%= link_to "New project", new_project_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    <h1 class="font-bold text-4xl">
+      Projetos
+    </h1>
+
+    <%= link_to "Novo projeto", new_project_path,
+                                class: "btn-primary",
+                                data: { turbo_frame: dom_id(Project.new) } %>
   </div>
 
-  <div id="projects" class="min-w-full">
-    <%= render @projects %>
+  <div class="flex flex-col gap-2 mt-2">
+    <%= turbo_frame_tag Project.new %>
+    <%= turbo_frame_tag 'projects', class: 'flex flex-col gap-2' do %>
+
+        <%= render @projects %>
+
+        <%== pagy_nav(@pagy) %>
+
+    <% end %>
   </div>
-</div>
+

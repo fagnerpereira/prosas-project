@@ -1,16 +1,27 @@
 <div id="<%= dom_id evaluation %>">
-  <p class="my-5">
-    <strong class="block font-medium mb-1">Weighted average:</strong>
-    <%= evaluation.weighted_average %>
-  </p>
+  <div class="flex gap-2">
+    <div><%= evaluation_title(evaluation) %></div>
 
+    <% if action_name != "show" %>
+      <%= link_to "Show this evaluation", evaluation, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <%= link_to "Edit this evaluation", edit_evaluation_path(evaluation), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
+      <hr class="mt-6">
+    <% end %>
+  </div>
 
-  <% if action_name != "show" %>
-    <%= link_to "Show this evaluation", evaluation, class: "rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-    <%= link_to "Edit this evaluation", edit_evaluation_path(evaluation), class: "rounded-lg py-3 ml-2 px-5 bg-gray-100 inline-block font-medium" %>
-    <hr class="mt-6">
-  <% end %>
+  <!-- Component: Striped Table -->
+  <div class="w-full overflow-x-auto">
+    <table class="w-full text-left border border-separate rounded border-slate-200" cellspacing="0">
+      <tbody>
+        <tr>
+          <th scope="col" class="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">Grade</th>
+          <th scope="col" class="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">Criterion</th>
+          <th scope="col" class="h-12 px-6 text-sm font-medium border-l first:border-l-0 stroke-slate-700 text-slate-700 bg-slate-100">Total</th>
+        </tr>
+        <%= render evaluation.grades %>
+      </tbody>
+    </table>
+  </div>
+  <!-- End Striped Table -->
 
-  <h2>Grades</h2>
-  <%= render evaluation.grades %>
 </div>

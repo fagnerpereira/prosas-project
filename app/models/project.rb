@@ -2,6 +2,10 @@ class Project < ApplicationRecord
   has_many :evaluations, dependent: :destroy
   has_many :grades, through: :evaluations
 
+  scope :ordered, -> { order(created_at: :desc) }
+
+  validates_presence_of :name
+
   accepts_nested_attributes_for :evaluations
 
   def update_total_average
