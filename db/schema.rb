@@ -10,33 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 20_240_124_172_925) do
-  create_table "criterions", force: :cascade do |t|
+ActiveRecord::Schema[7.1].define(version: 2024_01_24_172925) do
+  create_table "criterions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "weight"
     t.string "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
-  create_table "evaluations", force: :cascade do |t|
+  create_table "evaluations", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "weighted_average", default: 0.0
-    t.integer "project_id", null: false
+    t.bigint "project_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["project_id"], name: "index_evaluations_on_project_id"
   end
 
-  create_table "grades", force: :cascade do |t|
+  create_table "grades", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.float "value"
-    t.integer "evaluation_id", null: false
-    t.integer "criterion_id", null: false
+    t.bigint "evaluation_id", null: false
+    t.bigint "criterion_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["criterion_id"], name: "index_grades_on_criterion_id"
     t.index ["evaluation_id"], name: "index_grades_on_evaluation_id"
   end
 
-  create_table "projects", force: :cascade do |t|
+  create_table "projects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.float "total_average", default: 0.0
     t.datetime "created_at", null: false
