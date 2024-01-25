@@ -4,8 +4,13 @@ class ProjectsController < ApplicationController
 
   # GET /projects or /projects.json
   def index
-    @pagy, @projects = pagy(Project.ordered)
-    binding.pry
+    per_page = params.fetch(:per_page, Pagy::DEFAULT[:items])
+                     .to_i
+                     .clamp(Pagy::DEFAULT[:items],
+                            Pagy::DEFAULT[:max_items])
+
+    @pagy, @projects = pagy(Project.ordered, items: per_page)
+
     pagy_headers_merge(@pagy)
   end
 
