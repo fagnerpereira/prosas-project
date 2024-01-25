@@ -8,7 +8,7 @@ A tarefa é desenvolver uma api com três endpoints. Um para listar projetos, ou
 - [ ] Configurar Postman e exportar schema;
 - [x] Criar endpoint /projetos para cadastrar projetos com avaliações e notas;
 - [x] Criar endpoint /projetos para consultar projetos;
-  - [ ] aceitar de 25 a 100 projetos por página;
+  - [x] aceitar de 25 a 100 projetos por página;
   - [x] adicionar headers com dados da paginação
 - [x] Criar endpoint /criterios para cadastrar critérios;
 - [ ] Ao atualizar uma nota, a média da avaliação e do projeto devem ser atualizadas;
@@ -32,4 +32,5 @@ Nota:
 
 Criterio:
 - peso: Float
+
 ![image](https://github.com/fagnerpereira/prosas-project/assets/4353880/e334818f-2773-4695-838f-b8fc455ea12f)
